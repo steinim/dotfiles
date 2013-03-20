@@ -95,7 +95,7 @@ RERUN_LOGS=$HOME/src/digibash/logs
 [ -t 0 ] && export RERUN_COLOR=true
 [ -r $HOME/src/rerun/bash_completion ] && source $HOME/src/rerun/bash_completion
 
-export $PATH $RERUN_MODULES $RERUN_LOGS
+export PATH RERUN_MODULES RERUN_LOGS
 
 source /opt/boxen/env.sh
 
