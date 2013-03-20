@@ -24,7 +24,7 @@ alias zshconfig="vim ~/.zshrc"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -53,7 +53,6 @@ export DPOST_WEBAPP_REPO="/Users/steinim/src/digipost-webapp"
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
 export MAVEN_OPTS="-Xms1024m -Xmx1024m -XX:MaxPermSize=512m -XX:PermSize=512m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
-export GIT_HOME=/usr/local/git
 export LIQUIBASE_HOME=~/src/digipost/liquibase
 
 alias ll='ls -al'
@@ -82,33 +81,24 @@ function lrto { mvn liquibase:rollback -Dliquibase.rollbackTag="$1" -Pora ; }
 function lrch { mvn liquibase:rollback -Dliquibase.rollbackCount="$1" -Phsql ; } 
 function lrth { mvn liquibase:rollback -Dliquibase.rollbackTag="$1" -Phsql ; }
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-#export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PATH:$M2_HOME/bin
-#export PATH=$PATH:$GIT_HOME/bin
-export PATH=$PATH:$LIQUIBASE_HOME
-export PATH=$PATH:/usr/local/lib/node_modules
-export PATH=$PATH:~/bin
-export PATH=$PATH:/Applications/eclipse
-export PATH=$PATH:~/src/digipost/dpost-deploy/scripts:~/src/digipost/scripts:~/src/digipost/scripts/util:~/src/digipost/scripts/log:~/src/digipost/scripts/maven
-#export PATH=$PATH:/Users/steinim/.rvm/bin
-#export PATH=$PATH:/usr/local/lib/node_modules
-#export PATH=$PATH:/usr/local/share/npm/bind
-export PATH=$PATH:/opt/boxen/nvm/v0.8.8/lib/node_modules/pacman/bin
-export PATH=$PATH:$HOME/src/rerun
-#export PATH=$PATH:/usr/local/share/npm/bin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:$M2_HOME/bin
+PATH=$PATH:$LIQUIBASE_HOME
+PATH=$PATH:~/bin
+PATH=$PATH:/Applications/eclipse
+PATH=$PATH:~/src/digipost/dpost-deploy/scripts:~/src/digipost/scripts:~/src/digipost/scripts/util:~/src/digipost/scripts/log:~/src/digipost/scripts/maven
+PATH=$PATH:/opt/boxen/nvm/v0.8.8/lib/node_modules/pacman/bin
+PATH=$PATH:$HOME/src/rerun
 
-export RERUN_MODULES=$HOME/src/digibash/modules
-export RERUN_LOGS=$HOME/src/digibash/logs
+RERUN_MODULES=$HOME/src/digibash/modules
+RERUN_LOGS=$HOME/src/digibash/logs
 [ -t 0 ] && export RERUN_COLOR=true
 [ -r $HOME/src/rerun/bash_completion ] && source $HOME/src/rerun/bash_completion
+
+export $PATH $RERUN_MODULES $RERUN_LOGS
 
 source /opt/boxen/env.sh
 
 # Sjekk for endringer siden sist
 git status
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-
-#rvm --default use ruby-1.9.3
 
