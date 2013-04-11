@@ -90,10 +90,12 @@ PATH=$PATH:~/src/digipost/dpost-deploy/scripts:~/src/digipost/scripts:~/src/digi
 PATH=$PATH:/opt/boxen/nvm/v0.8.8/lib/node_modules/pacman/bin
 PATH=$PATH:$HOME/src/rerun
 
-RERUN_MODULES=$HOME/src/digibash/modules
-RERUN_LOGS=$HOME/src/digibash/logs
+#RERUN_MODULES=$HOME/src/digibash/modules
+#RERUN_LOGS=$HOME/src/digibash/logs
+RERUN_MODULES=$HOME/src/digipost/scripts/modules
+RERUN_LOGS=$HOME/src/digipost/scripts/logs
 [ -t 0 ] && export RERUN_COLOR=true
-[ -r $HOME/src/rerun/bash_completion ] && source $HOME/src/rerun/bash_completion
+#source $HOME/src/rerun/etc/bash_completion.sh
 
 export PATH RERUN_MODULES RERUN_LOGS
 
