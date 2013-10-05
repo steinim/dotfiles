@@ -62,9 +62,12 @@ alias noc='cd ~/src/NoCommons'
 alias sca='cd ~/src/scala_intro_kurs'
 alias box='cd ~/src/our-boxen'
 alias src='cd ~/src'
+alias pro='cd ~/src/provisioning-workshop'
 
 alias mvn='nocorrect mvn'
 alias subl='nocorrect subl'
+alias git='nocorrect git'
+alias hub="nocorrect hub"
 alias mvnv='~/src/digipost/scripts/maven/version.sh'
 alias mcis='~/src/digipost/scripts/maven/snapshot.sh clean install'
 alias mvns='~/src/digipost/scripts/maven/snapshot.sh'
@@ -96,11 +99,15 @@ RERUN_MODULES=$HOME/src/digipost/scripts/modules
 RERUN_LOGS=$HOME/src/digipost/scripts/logs
 [ -t 0 ] && export RERUN_COLOR=true
 #source $HOME/src/rerun/etc/bash_completion.sh
+#
+PATH=/opt/boxen/nvm/v0.8.8/lib/node_modules/jshint/bin:$PATH
 
 export PATH RERUN_MODULES RERUN_LOGS
 
-source /opt/boxen/env.sh
+#source /opt/boxen/env.sh
 
 # Sjekk for endringer siden sist
 git status
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
