@@ -90,22 +90,22 @@ PATH=$PATH:$LIQUIBASE_HOME
 PATH=$PATH:~/bin
 PATH=$PATH:/Applications/eclipse
 PATH=$PATH:~/src/digipost/dpost-deploy/scripts:~/src/digipost/scripts:~/src/digipost/scripts/util:~/src/digipost/scripts/log:~/src/digipost/scripts/maven
-PATH=$PATH:/opt/boxen/nvm/v0.8.8/lib/node_modules/pacman/bin
-PATH=$PATH:$HOME/src/rerun
+#PATH=$PATH:/opt/boxen/nvm/v0.8.8/lib/node_modules/pacman/bin
+#PATH=$PATH:$HOME/src/rerun
 
 #RERUN_MODULES=$HOME/src/digibash/modules
 #RERUN_LOGS=$HOME/src/digibash/logs
-RERUN_MODULES=$HOME/src/digipost/scripts/modules
-RERUN_LOGS=$HOME/src/digipost/scripts/logs
-[ -t 0 ] && export RERUN_COLOR=true
+#RERUN_MODULES=$HOME/src/digipost/scripts/modules
+#RERUN_LOGS=$HOME/src/digipost/scripts/logs
+#[ -t 0 ] && export RERUN_COLOR=true
 #source $HOME/src/rerun/etc/bash_completion.sh
 #
 #PATH=/opt/boxen/nvm/v0.8.8/lib/node_modules/jshint/bin:$PATH
 
-export PATH RERUN_MODULES RERUN_LOGS
+export PATH # RERUN_MODULES RERUN_LOGS
 
 source /opt/boxen/env.sh
 
 # Sjekk for endringer siden sist
-#git status
+git status
 
