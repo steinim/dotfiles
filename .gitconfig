@@ -1,0 +1,25 @@
+[user]
+        name = Stein Inge Morisbak
+        email = stein.inge.morisbak@BEKK.no
+[core]
+        editor = /usr/bin/vim
+        excludesfile = /opt/boxen/config/git/gitignore
+        quotepath = false
+[difftool "sourcetree"]
+        cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+        path =
+[mergetool "sourcetree"]
+        cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+        trustExitCode = true
+[merge]
+        tool = p4merge
+[mergetool]
+        prompt = false
+        keepbackup = false
+        keeptemporaries = false
+[credential]
+        helper = /opt/boxen/bin/boxen-git-credential
+[hub]
+        protocol = https
+[push]
+        default = matching

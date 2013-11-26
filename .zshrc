@@ -9,7 +9,7 @@ ZSH_THEME="stein_inge"
 
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -100,14 +100,12 @@ RERUN_LOGS=$HOME/src/digipost/scripts/logs
 [ -t 0 ] && export RERUN_COLOR=true
 #source $HOME/src/rerun/etc/bash_completion.sh
 #
-PATH=/opt/boxen/nvm/v0.8.8/lib/node_modules/jshint/bin:$PATH
+#PATH=/opt/boxen/nvm/v0.8.8/lib/node_modules/jshint/bin:$PATH
 
 export PATH RERUN_MODULES RERUN_LOGS
 
-#source /opt/boxen/env.sh
+source /opt/boxen/env.sh
 
 # Sjekk for endringer siden sist
-git status
+#git status
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
