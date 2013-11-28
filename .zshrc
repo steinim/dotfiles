@@ -52,7 +52,7 @@ export DPOST_WEBAPP_REPO="/Users/steinim/src/digipost-webapp"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
-export MAVEN_OPTS="-Xms1024m -Xmx1024m -XX:MaxPermSize=512m -XX:PermSize=512m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
+export MAVEN_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=512m -XX:PermSize=512m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
 export LIQUIBASE_HOME=~/src/digipost/liquibase
 
 alias ll='ls -al'
@@ -60,7 +60,7 @@ alias dpo='cd ~/src/digipost'
 alias cde='cd ~/src/Continuous-Delivery-example'
 alias noc='cd ~/src/NoCommons'
 alias sca='cd ~/src/scala_intro_kurs'
-alias box='cd ~/src/our-boxen'
+alias box='cd ~/src/my-boxen'
 alias src='cd ~/src'
 alias pro='cd ~/src/provisioning-workshop'
 
