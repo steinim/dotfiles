@@ -12,7 +12,6 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias sourcetree="open -a SourceTree"
-alias p4merge="open -a p4merge"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
