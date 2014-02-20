@@ -11,6 +11,9 @@ ZSH_THEME="stein_inge"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias sourcetree="open -a SourceTree"
+alias p4merge="open -a p4merge"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -37,6 +40,7 @@ source $ZSH/oh-my-zsh.sh
 
 _useJava() {
   export JAVA_HOME=$(/usr/libexec/java_home -v ${1} -d64)
+  export PATH=$JAVA_HOME/bin:$PATH
 }
 
 export LC_CTYPE="UTF-8"
@@ -101,6 +105,9 @@ PATH=$PATH:~/src/digipost/dpost-deploy/scripts:~/src/digipost/scripts:~/src/digi
 #source $HOME/src/rerun/etc/bash_completion.sh
 #
 #PATH=/opt/boxen/nvm/v0.8.8/lib/node_modules/jshint/bin:$PATH
+#
+export DYLD_LIBRARY_PATH=~/bin/instantclient_11_2
+PATH=$PATH:$DYLD_LIBRARY_PATH
 
 export PATH # RERUN_MODULES RERUN_LOGS
 

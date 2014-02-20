@@ -12,14 +12,18 @@
         cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
         trustExitCode = true
 [merge]
-        tool = p4merge
+	tool = p4merge
 [mergetool]
         prompt = false
         keepbackup = false
         keeptemporaries = false
 [credential]
-        helper = /opt/boxen/bin/boxen-git-credential
+	helper = /opt/boxen/bin/boxen-git-credential
 [hub]
         protocol = https
 [push]
         default = matching
+[mergetool "p4merge"]
+	trustExitCode = false
+[diff]
+	tool = p4merge
