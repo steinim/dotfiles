@@ -52,6 +52,7 @@ export DPOST_HOME=/server/java
 export DPOST_MAIN_REPO="/Users/steinim/src/digipost"
 export DPOST_POSTIT_REPO="/Users/steinim/src/digipost-postit"
 export DPOST_WEBAPP_REPO="/Users/steinim/src/digipost-webapp"
+export DPOST_OFFENTLIG_REPO="/Users/steinim/src/digipost-offentlig"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
