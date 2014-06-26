@@ -48,11 +48,13 @@ _useJava 1.7
 
 export DPOST_USER=SIM
 export DPOST_HOME=/server/java
+export MF_USER=sim
 
 export DPOST_MAIN_REPO="/Users/steinim/src/digipost"
 export DPOST_POSTIT_REPO="/Users/steinim/src/digipost-postit"
 export DPOST_WEBAPP_REPO="/Users/steinim/src/digipost-webapp"
 export DPOST_OFFENTLIG_REPO="/Users/steinim/src/digipost-offentlig"
+export DPOST_ANSIBLE_REPO="/Users/steinim/src/digipost-ansible"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
@@ -60,7 +62,9 @@ export MAVEN_OPTS="-Xms8192m -Xmx8192m -XX:MaxPermSize=2048m -XX:PermSize=2048m 
 export LIQUIBASE_HOME=~/src/digipost/liquibase
 
 alias ll='ls -al'
-alias dpo='cd ~/src/digipost'
+alias dpo="cd $DPOST_OFFENTLIG_REPO"
+alias dp="cd $DPOST_MAIN_REPO"
+alias da="cd $DPOST_ANSIBLE_REPO"
 alias cde='cd ~/src/Continuous-Delivery-example'
 alias noc='cd ~/src/NoCommons'
 alias sca='cd ~/src/scala_intro_kurs'
