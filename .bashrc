@@ -19,3 +19,4 @@ _log(){
 
 _useJava 1.7
 
+source /opt/boxen/env.sh
