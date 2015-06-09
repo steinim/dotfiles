@@ -6,7 +6,6 @@
         excludesfile = /opt/boxen/config/git/gitignore
         quotepath = false
 [credential]
-	helper = /opt/boxen/bin/boxen-git-credential
 [hub]
         protocol = https
 [push]

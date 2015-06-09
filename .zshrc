@@ -1,15 +1,5 @@
-# Path to your oh-my-zsh configuration:.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="stein_inge"
-
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias sourcetree="open -a SourceTree"
 
@@ -44,8 +34,6 @@ _useJava() {
 
 export LC_CTYPE="UTF-8"
 
-_useJava 1.7
-
 export DPOST_USER=SIM
 export DPOST_HOME=/server/java
 export MF_USER=sim
@@ -55,22 +43,36 @@ export DPOST_POSTIT_REPO="/Users/steinim/src/digipost-postit"
 export DPOST_WEBAPP_REPO="/Users/steinim/src/digipost-webapp"
 export DPOST_OFFENTLIG_REPO="/Users/steinim/src/digipost-offentlig"
 export DPOST_ANSIBLE_REPO="/Users/steinim/src/digipost-ansible"
+export DPOST_DEPLOY_REPO="/Users/steinim/src/digipost-deploy"
+export DPOST_POSTGRES_REPO="/Users/steinim/src/postgres-ansible"
+export DPOST_SUB_REPO="/Users/steinim/src/digipost-sub"
+export DPOST_MONITORING_WEBAPP_REPO="/Users/steinim/src/digipost-monitoring-webapp"
+export DPOST_LABS_REPO="/Users/steinim/src/digipost-labs"
+export DPOST_LABS_WEBAPP_REPO="$DPOST_LABS_REPO/labs/frontend"
+export MF_WEBAPP_REPO="$DPOST_OFFENTLIG_REPO/mf-webapp"
+export FRONTEND_DEPLOY="/Users/steinim/src/frontend-deploy"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
-export MAVEN_OPTS="-Xms8192m -Xmx8192m -XX:MaxPermSize=2048m -XX:PermSize=2048m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
+export MAVEN_OPTS="-Xms8192m -Xmx8192m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
 export LIQUIBASE_HOME=~/src/digipost/liquibase
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
 alias ll='ls -al'
 alias dpo="cd $DPOST_OFFENTLIG_REPO"
 alias dp="cd $DPOST_MAIN_REPO"
 alias da="cd $DPOST_ANSIBLE_REPO"
+alias dpd="cd $DPOST_DEPLOY_REPO"
+alias pa="cd $DPOST_POSTGRES_REPO"
+alias fed="cd $FRONTEND_DEPLOY"
+alias zd='cd ~/src/zero-downtime-ansible'
 alias cde='cd ~/src/Continuous-Delivery-example'
 alias noc='cd ~/src/NoCommons'
 alias sca='cd ~/src/scala_intro_kurs'
-alias box='cd ~/src/my-boxen'
+#alias box='cd ~/src/my-boxen'
 alias src='cd ~/src'
 alias pro='cd ~/src/provisioning-workshop'
+alias coachany='cd ~/src/coachany'
 
 alias mvn='nocorrect mvn'
 alias subl='nocorrect subl'
@@ -98,15 +100,21 @@ PATH=$PATH:$LIQUIBASE_HOME
 PATH=$PATH:~/bin
 PATH=$PATH:/Applications/eclipse
 PATH=$PATH:~/src/digipost/scripts:~/src/digipost/scripts/util:~/src/digipost/scripts/log:~/src/digipost/scripts/maven
-PATH=$PATH:/opt/boxen/homebrew/bin/node
+PATH=$(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin:$PATH
+PATH=$PATH:~/.android_sdk/adt-bundle/sdk/platform-tools:~/.android_sdk/adt-bundle/sdk/tools
 
-export DYLD_LIBRARY_PATH=~/bin/instantclient_11_2
-PATH=$PATH:$DYLD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=~/bin/instantclient_11_2
+#PATH=$PATH:$DYLD_LIBRARY_PATH
 
 export PATH
 
-source /opt/boxen/repo/env.sh
+export EDITOR=/usr/bin/vim
+export LC_ALL=en_US.UTF-8
+
+#source /opt/boxen/repo/env.sh
+
+_useJava 1.8
 
 # Sjekk for endringer siden sist
-git status
-
+#git status
+eval "$($DPOST_SUB_REPO/bin/dp init -)"
