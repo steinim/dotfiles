@@ -101,7 +101,7 @@ PATH=$PATH:~/bin
 PATH=$PATH:/Applications/eclipse
 PATH=$PATH:~/src/digipost/scripts:~/src/digipost/scripts/util:~/src/digipost/scripts/log:~/src/digipost/scripts/maven
 PATH=$(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin:$PATH
-PATH=$PATH:~/.android_sdk/adt-bundle/sdk/platform-tools:~/.android_sdk/adt-bundle/sdk/tools
+PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
 
 #export DYLD_LIBRARY_PATH=~/bin/instantclient_11_2
 #PATH=$PATH:$DYLD_LIBRARY_PATH
