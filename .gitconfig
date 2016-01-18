@@ -3,7 +3,6 @@
         email = stein.inge.morisbak@BEKK.no
 [core]
         editor = /usr/bin/vim
-        excludesfile = /opt/boxen/config/git/gitignore
         quotepath = false
 [credential]
 [hub]
@@ -15,3 +14,14 @@ cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge â€œ$PWD/$BASEâ€
 keepTemporaries = false
 trustExitCode = false
 keepBackup = false
+[merge]
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	trustExitCode = false
+[mergetool]
+	keepBackup = false
+[diff]
+	tool = p4mergetool
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
