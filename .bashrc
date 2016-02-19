@@ -17,6 +17,3 @@ _log(){
   echo $( date ): ${@}
 }
 
-_useJava 1.7
-
-source /opt/boxen/env.sh
