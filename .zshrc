@@ -25,10 +25,12 @@ export USER=steinim
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
-export MAVEN_OPTS="-Xms8192m -Xmx8192m -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF-8 -Djava.security.egd=file:///dev/urandom"
+export MAVEN_OPTS="-Xms8192m -Xmx8192m -Denv.CMS_HOME=/Users/steinim/src/nsb/enonic/cms_home"
 export ANDROID_HOME=~/.android-sdk
 
 alias ll='ls -al'
+alias coachany='cd ~/src/coachany'
+alias nsb='cd ~/src/nsb'
 
 alias mvn='nocorrect mvn'
 alias subl='nocorrect subl'
