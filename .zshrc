@@ -40,8 +40,6 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
 PATH=$PATH:~/boxfuse
 
-export HOMEBREW_GITHUB_API_TOKEN="b3378c13d1c0fdfb60ef6af312f37f6c4be08fff"
-
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
