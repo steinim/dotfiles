@@ -5,12 +5,11 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="stein_inge"
 
 alias sourcetree="open -a SourceTree"
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
-export PASSWORD_STORE_DIR=/Users/steinim/src/passwords
+export PASSWORD_STORE_DIR=~/src/nsb/.password-store
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
 
 _useJava() {
   export JAVA_HOME=$(/usr/libexec/java_home -v ${1} -d64)
@@ -21,16 +20,14 @@ _useJava 1.8
 
 export LC_CTYPE="UTF-8"
 
-export USER=steinim
-
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
-export MAVEN_OPTS="-Xms8192m -Xmx8192m -Denv.CMS_HOME=/Users/steinim/src/nsb/enonic/cms_home"
+export CMS_HOME="/Users/steinim/src/nsb/enonic/cms_home"
+export MAVEN_OPTS="-Xmx2048m -Denv.CMS_HOME=${CMS_HOME}"
 export ANDROID_HOME=~/.android-sdk
 
 alias ll='ls -al'
 alias coachany='cd ~/src/coachany'
-alias nsb='cd ~/src/nsb'
 
 alias mvn='nocorrect mvn'
 alias subl='nocorrect subl'
@@ -39,17 +36,18 @@ alias hub="nocorrect hub"
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:$M2_HOME/bin
-PATH=$PATH:$LIQUIBASE_HOME
 PATH=$PATH:~/bin
-PATH=$PATH:/Applications/eclipse
-PATH=$(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin:$PATH
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
+PATH=$PATH:~/boxfuse
+
+export HOMEBREW_GITHUB_API_TOKEN="b3378c13d1c0fdfb60ef6af312f37f6c4be08fff"
 
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
 
 export GOPATH=~/src/go
-PATH=$GOPATH/bin:$PATH
+export GOBIN=$GOPATH/bin
+PATH=$GOBIN:$PATH
 export PATH
 eval $(gpg-agent --daemon)
 
@@ -57,3 +55,7 @@ alias ssh="/usr/local/bin/ssh"
 
 # AWS Credentials
 [[ -f ~/.bash_aws ]] && . ~/.bash_aws
+. ~/.nsb_env
+
+# added by travis gem
+[ -f /Users/steiningemorisbak/.travis/travis.sh ] && source /Users/steiningemorisbak/.travis/travis.sh
