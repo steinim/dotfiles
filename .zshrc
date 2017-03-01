@@ -38,7 +38,8 @@ PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:$M2_HOME/bin
 PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
-PATH=$PATH:~/boxfuse
+PATH=$PATH:~/bin/boxfuse
+PATH=$PATH:~/src/nsb/nsb.no-dev/scripts/bin
 
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
@@ -54,6 +55,10 @@ alias ssh="/usr/local/bin/ssh"
 # AWS Credentials
 [[ -f ~/.bash_aws ]] && . ~/.bash_aws
 . ~/.nsb_env
+
+# google-cloud-sdk
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # added by travis gem
 [ -f /Users/steiningemorisbak/.travis/travis.sh ] && source /Users/steiningemorisbak/.travis/travis.sh
