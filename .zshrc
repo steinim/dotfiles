@@ -1,5 +1,5 @@
-ulimit -n 65536
-ulimit -u 2048
+#ulimit -n 65536
+#ulimit -u 2048
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="stein_inge"
@@ -11,12 +11,8 @@ export PASSWORD_STORE_DIR=~/src/nsb/.password-store
 
 source $ZSH/oh-my-zsh.sh
 
-_useJava() {
-  export JAVA_HOME=$(/usr/libexec/java_home -v ${1} -d64)
-  export PATH=$JAVA_HOME/bin:$PATH
-}
-
-_useJava 1.8
+export JAVA_HOME=$(/usr/libexec/java_home)
+PATH=$JAVA_HOME:$PATH
 
 export LC_CTYPE="UTF-8"
 
@@ -34,7 +30,7 @@ alias subl='nocorrect subl'
 alias git='nocorrect git'
 alias hub="nocorrect hub"
 
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:$M2_HOME/bin
 PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
@@ -48,13 +44,12 @@ export GOPATH=~/src/go
 export GOBIN=$GOPATH/bin
 PATH=$GOBIN:$PATH
 export PATH
-eval $(gpg-agent --daemon)
+#eval $(gpg-agent --daemon)
 
 alias ssh="/usr/local/bin/ssh"
 
 # AWS Credentials
 [[ -f ~/.bash_aws ]] && . ~/.bash_aws
-. ~/.nsb_env
 
 # google-cloud-sdk
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -62,3 +57,9 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # added by travis gem
 [ -f /Users/steiningemorisbak/.travis/travis.sh ] && source /Users/steiningemorisbak/.travis/travis.sh
+
+PATH="/Users/steiningemorisbak/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/steiningemorisbak/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/steiningemorisbak/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/steiningemorisbak/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/steiningemorisbak/perl5"; export PERL_MM_OPT;
