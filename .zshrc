@@ -36,6 +36,7 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
 PATH=$PATH:~/bin/boxfuse
 PATH=$PATH:~/src/nsb/nsb.no-dev/scripts/bin
+PATH=$PATH:~/src/nsb/cloud-tools/bin
 
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
