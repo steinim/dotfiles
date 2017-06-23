@@ -18,17 +18,14 @@ export LC_CTYPE="UTF-8"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
-export CMS_HOME="/Users/steinim/src/nsb/enonic/cms_home"
-export MAVEN_OPTS="-Xmx2048m -Denv.CMS_HOME=${CMS_HOME}"
+export MAVEN_OPTS="-Xmx2048m"
 export ANDROID_HOME=~/.android-sdk
 
 alias ll='ls -al'
 alias coachany='cd ~/src/coachany'
 
 alias mvn='nocorrect mvn'
-alias subl='nocorrect subl'
-alias git='nocorrect git'
-alias hub="nocorrect hub"
+eval "$(hub alias -s)"
 
 PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=$PATH:$M2_HOME/bin
@@ -36,7 +33,6 @@ PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
 PATH=$PATH:~/bin/boxfuse
 PATH=$PATH:~/src/nsb/nsb.no-dev/scripts/bin
-PATH=$PATH:~/src/nsb/cloud-tools/bin
 
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.UTF-8
@@ -56,6 +52,9 @@ alias ssh="/usr/local/bin/ssh"
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
+# nsb tool
+source ~/src/nsb/nsb.no-dev/scripts/completions/nsb.zsh
+
 # added by travis gem
 [ -f /Users/steiningemorisbak/.travis/travis.sh ] && source /Users/steiningemorisbak/.travis/travis.sh
 
@@ -64,3 +63,5 @@ PERL5LIB="/Users/steiningemorisbak/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; ex
 PERL_LOCAL_LIB_ROOT="/Users/steiningemorisbak/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/steiningemorisbak/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/steiningemorisbak/perl5"; export PERL_MM_OPT;
+export CMS_HOME="/Users/steiningemorisbak/src/nsb/nsb.no-infrastructure/cms.home"
+export MAVEN_OPTS="-Xmx2048m -Denv.CMS_HOME=/Users/steiningemorisbak/src/nsb/nsb.no-infrastructure/cms.home"
