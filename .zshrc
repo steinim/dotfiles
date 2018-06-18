@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 export JAVA_HOME=$(/usr/libexec/java_home)
 PATH=$JAVA_HOME:$PATH
 
-export LC_CTYPE="UTF-8"
+#export LC_CTYPE="UTF-8"
 
 export M2_HOME=/usr/local/maven
 export M2_REPO=/Users/steinim/.m2/repository
@@ -31,6 +31,7 @@ alias mvn='nocorrect mvn'
 eval "$(hub alias -s)"
 
 PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=$PATH:~/Library/Python/2.7/bin
 PATH=$PATH:$M2_HOME/bin
 PATH=$PATH:~/bin
 PATH=$PATH:~/.android_sdk/platform-tools:~/.android_sdk/tools
@@ -69,7 +70,7 @@ PERL5LIB="/Users/steiningemorisbak/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; ex
 PERL_LOCAL_LIB_ROOT="/Users/steiningemorisbak/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/steiningemorisbak/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/steiningemorisbak/perl5"; export PERL_MM_OPT;
-#export CMS_HOME="/Users/steiningemorisbak/src/nsb/enonic-cms/home"
+export CMS_HOME="/Users/steiningemorisbak/src/nsb/enonic-cms/home"
 #export MAVEN_OPTS="-Xmx2048m -Denv.CMS_HOME=/Users/steiningemorisbak/src/nsb/enonic-cms/home"
 
 #. ~/.gcp_env
