@@ -1,55 +1,131 @@
+SECONDS=0  # Start timing
+
+# Initial timing
+zshrc_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+
+# Oh My Zsh Configuration
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="stein_inge"
 
+# Localization Settings
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-alias brewski='brew update && brew upgrade; brew upgrade --greedy && brew cleanup; brew doctor; brew doctor --verbose;'
-
+# Aliases
 alias pass=gopass
 alias pip=pip3
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+# Time before Homebrew aliases
+brew_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
 
-plugins=(
-  git
-)
+# Homebrew
+#brew_update_async() {
+#    (brew update && brew upgrade; brew upgrade --greedy && brew cleanup; brew doctor && 
+#    echo "Brew update and upgrade completed!" | terminal-notifier -title "Homebrew") &!
+#}
+#alias brewski=brew_update_async
 
+alias brewski=brew update && brew upgrade; brew upgrade --greedy && brew cleanup; brew doctor
+
+brew_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+brew_duration=$((brew_end_time - brew_start_time))
+echo "Homebrew aliases loaded in ${brew_duration} ms"
+
+# Time before Oh My Zsh
+oh_my_zsh_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+
+plugins=(git)
+
+# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-PATH=$PATH:~/bin
+oh_my_zsh_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+oh_my_zsh_duration=$((oh_my_zsh_end_time - oh_my_zsh_start_time))
+echo "Oh My Zsh loaded in ${oh_my_zsh_duration} ms"
 
-export EDITOR=/usr/bin/vim
+# Time before Zsh completions
+completions_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
 
+# Add ZSH completions if the directory exists
+if [ -d "/usr/local/share/zsh-completions" ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
+# Zsh completions setup
+zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+if [[ -f "$zcompdump" && "$zcompdump" -nt "$ZSHRC" ]]; then
+    compinit -C
+else
+    compinit
+fi
+
+completions_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+completions_duration=$((completions_end_time - completions_start_time))
+echo "Zsh completions loaded in ${completions_duration} ms"
+
+# Time before Zinit
+zinit_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+
+# Source Zinit from Homebrew installation
+source /usr/local/opt/zinit/zinit.zsh
+
+# Load plugins with Zinit
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+zinit_duration=$((zinit_end_time - zinit_start_time))
+echo "Zinit and plugins loaded in ${zinit_duration} ms"
+
+# Time for PATH setup
+path_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+
+# Consolidated PATH setup
 export GOPATH=~/src/go
 export GOBIN=$GOPATH/bin
-PATH=$GOBIN:$PATH:/usr/local/opt/go/libexec/bin
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export CORDOVA_JAVA_HOME=$(/usr/libexec/java_home)
+# Set Android SDK Root and Emulator Paths
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-ANDROID_HOME="/usr/local/share/android-sdk"
-export ANT_HOME=/usr/local/opt/ant/libexec
-export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
-
-export PATH=$ANT_HOME/bin:$PATH
-export PATH=$MAVEN_HOME/bin:$PATH
-export PATH=$GRADLE_HOME/bin:$PATH
-export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
-export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH
-export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
-export PATH=$ANDROID_SDK_ROOT/build-tools:$PATH
-export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
-export PATH=~/Library/Python/2.7/bin:$PATH
+# Consolidated PATH setup
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH=$GOBIN:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/build-tools:$ANT_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin:$PATH
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-export PATH
+path_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+path_duration=$((path_end_time - path_start_time))
+echo "PATH setup loaded in ${path_duration} ms"
 
+# Set Editor (change if needed)
+export EDITOR=/usr/bin/vim
+
+# Hkraft Scripts
 export HKRAFT_SCRIPT_DIR=~/src/hkraft/hkraft-dev/scripts
 
+# GPG Configuration
 export GPG_TTY=$(tty)
 
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+# Docker Configuration
+export DOCKER_HOST=unix:///$HOME/.colima/docker.sock
+
+# NVM setup
+nvm_start_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+
+# Load NVM (Node Version Manager) and its bash completion
+export NVM_DIR="$HOME/.nvm"
+# Load NVM and its bash completion directly
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+nvm_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+nvm_duration=$((nvm_end_time - nvm_start_time))
+echo "NVM loaded in ${nvm_duration} ms"
+
+# Final timing
+zshrc_end_time=$(($(date +%s)*1000 + $(date +%N)/1000000))
+zshrc_duration=$((zshrc_end_time - zshrc_start_time))
+echo ".zshrc fully loaded in ${zshrc_duration} ms"
+
+echo ".zshrc loaded in $SECONDS second(s)"
+
